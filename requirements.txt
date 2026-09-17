@@ -1,0 +1,16 @@
+# Pinned to ranges that are well-tested together. The LMM degeneracy bug
+# documented in README.md / 03_stats_analysis.ipynb was traced to a pandas
+# pyarrow-backed string dtype interacting badly with statsmodels' MixedLM
+# `groups=` argument, on a very new (3.14) Python build. The code now
+# guards against this directly (playername is cast to str), but staying
+# within these ranges avoids relying on that guard alone.
+python_requires>=3.10,<3.13
+
+pandas>=2.0,<2.3
+numpy>=1.24,<2.0
+scipy>=1.10
+statsmodels>=0.14.1
+matplotlib>=3.7
+seaborn>=0.13
+jupyterlab>=4.0
+ipython>=8.12
